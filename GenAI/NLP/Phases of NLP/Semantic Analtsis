@@ -1,0 +1,34 @@
+#### Semantic Analysis ####
+Semantic Analysis focuses on understanding meaning behind words and sentences. It ensures that the text is not only grammatically correct but also logically coherent and contextually relevant. 
+It aims to understand dictionary definitions of words and their usage in context and also find whether the arrangement of words in a sentence makes logical sense.
+
+Key Tasks in Semantic Analysis
+Named Entity Recognition (NER): It identifies and classifies entities such as names of people, locations, organizations, dates and more. These entities provide important meaning in the text and help in understanding the context. 
+For example in the sentence "Tesla announced its new electric vehicle in California," NER would identify "Tesla" as an organization and "California" as a location.
+Word Sense Disambiguation (WSD): Many words have multiple meanings depending on the context in which they are used. It identifies the correct meaning of a word based on its surrounding text. For example word "bank" can refer to a 
+financial institution or the side of a river. It uses context to identify which meaning applies in a given sentence which ensures that interpretation is accurate.
+Example of Semantic Analysis
+"Apple eats a John." while grammatically correct this sentence doesn’t make sense semantically because an apple cannot "eat" a person. Semantic analysis ensures that the meaning is logically sound and contextually appropriate. 
+It is important for various NLP applications including machine translation, information retrieval and question answering.
+
+## CODE ##
+
+import spacy
+
+# Load spaCy's medium English model (includes word vectors)
+nlp = spacy.load("en_core_web_md")
+
+# Compare word meanings
+word1 = nlp("king")
+word2 = nlp("queen")
+word3 = nlp("apple")
+
+print("Similarity between 'king' and 'queen':", word1.similarity(word2))
+print("Similarity between 'king' and 'apple':", word1.similarity(word3))
+
+# Sentence-level semantic similarityA
+sentence1 = nlp("Harshad is learning Natural Language Processing.")
+sentence2 = nlp("Harshad studies NLP.")
+sentence3 = nlp("Harshad is eating an apple.")
+
+print("\nSimilarity between sentence1 and sentence2:", sentence1.similarity(sentence2))
