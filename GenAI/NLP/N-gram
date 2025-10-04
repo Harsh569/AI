@@ -30,3 +30,33 @@ print("Trigrams:", trigrams)
 Output:  ('is', 'learning'), ('learning', 'Natural'), ('Natural', 'Language'), ('Language', 'Processing')]
 Trigrams: [('Harshad', 'is', 'learning'), ('is', 'learning', 'Natural'), ('learning', 'Natural', 'Language'), ('Natural', 'Language', 'Processing')]
 
+🎯 Purpose of N-gram Tokenization
+N-gram tokenization helps capture contextual relationships between words or characters in a sequence. Instead of treating each word independently (like in unigram models), N-grams consider sequences of N items, which improves understanding of language structure.
+
+✅ Key Purposes & Applications
+1. Language Modeling
+
+Predict the next word based on previous N-1 words.
+Example: In bigram model, "I am" → likely next word is "happy".
+
+2. Text Classification
+
+Spam detection, sentiment analysis, etc.
+N-grams help capture phrases like “not good” or “very bad”.
+
+3. Information Retrieval
+
+Improves search relevance by matching phrases instead of single words.
+
+4. Machine Translation
+
+Helps align phrases between source and target languages.
+
+5. Speech Recognition
+
+Predicts word sequences based on phonetic patterns.
+
+6. Plagiarism Detection
+
+Matches sequences of words across documents.
+
