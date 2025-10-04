@@ -1,0 +1,84 @@
+Conversion of textual data into numer in simple word
+
+## What is Vectorization in NLP?
+
+Vectorization is the process of converting text data into numerical format (vectors) so that machine learning models can process it.
+Since ML models can't understand raw text, we need to represent words, sentences, or documents as vectors of numbers.
+
+🔢 Types of Vectorization
+
+#######   1. Bag of Words (BoW)
+This method counts how many times each word appears in a document.
+
+texts = ["NLP is fun", "NLP is powerful"]
+vectorizer = CountVectorizer()
+X = vectorizer.fit_transform(texts)
+
+print(vectorizer.get_feature_names_out())
+print(X.toarray())
+Output:
+['fun', 'is', 'nlp', 'powerful']
+[[1 1 1 0]
+ [0 1 1 1]]
+
+########## 2) -IDF (Term Frequency-Inverse Document Frequency)
+This method gives weight to words based on how important they are in a document relative to a collection of documents.
+
+
+from sklearn.feature_extraction.text import TfidfVectorizer
+
+texts = ["NLP is fun", "NLP is powerful"]
+vectorizer = TfidfVectorizer()
+X = vectorizer.fit_transform(texts)
+
+print(vectorizer.get_feature_names_out())
+print(X.toarray())
+
+Output: ['fun' 'is' 'nlp' 'powerful']
+[[0.70490949 0.50154891 0.50154891 0.        ]
+ [0.         0.50154891 0.50154891 0.70490949]]
+
+######## 3) Word Embeddings (Word2Vec, GloVe)
+These methods represent words as dense vectors that capture semantic meaning. Words with similar meanings have similar vectors.
+
+from gensim.models import Word2Vec
+
+sentences = [["NLP", "is", "fun"], ["NLP", "is", "powerful"]]
+model = Word2Vec(sentences, vector_size=10, window=2, min_count=1, workers=1)
+
+print(model.wv["NLP"])  # Vector for the word 'NLP'
+
+
+######### 4) Transformer Embedding (BERT, GPT)
+These models generate contextual embeddings — the same word can have different vectors depending on its context.
+
+!pip install sentence_transformers
+from sentence_transformers import SentenceTransformer
+
+model = SentenceTransformer('all-MiniLM-L6-v2')
+sentence = "NLP is fun"
+embedding = model.encode(sentence)
+
+print(embedding)  # A 384-dimensional vector
+
+
+✅ Advantages of Vectorization
+
+Makes text usable for machine learning models.
+Enables semantic understanding with embeddings.
+Scales well with large datasets.
+Supports various levels: word, sentence, document.
+
+⚠️ Disadvantages
+
+Simple methods like BoW and TF-IDF ignore word order and context.
+High-dimensional vectors can be memory-intensive.
+Embeddings require large datasets and compute power.
+Out-of-vocabulary words can be problematic in some models.
+
+
+
+
+
+
+
