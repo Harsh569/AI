@@ -1,0 +1,15 @@
+1) Word Tokenization: This is the most common method where text is divided into individual words. It works well for languages with clear word boundaries, like English.
+2) Character Tokenization: In this method, text is split into individual characters. This is particularly useful for languages without clear word boundaries or for tasks that require a detailed analysis, such as spelling correction.
+3) Sub-word Tokenization: Sub-word tokenization strikes a balance between word and character tokenization by breaking down text into units that are larger than a single character but smaller than a full word.
+4) Sentence Tokenization: Sentence tokenization is also a common technique used to make a division of paragraphs or large set of sentences into separated sentences as tokens.
+5) N-gram Tokenization: N-gram tokenization splits words into fixed-sized chunks (size = n) of data.
+
+Implementing Tokenization
+Several tools and libraries are available to implement tokenization effectively:
+
+NLTK (Natural Language Toolkit): A comprehensive Python library that offers word and sentence tokenization. It's suitable for a wide range of linguistic tasks.
+SpaCy: A modern and efficient NLP library in Python, known for its speed and support for multiple languages. It is ideal for large-scale applications.
+BERT Tokenizer: Emerging from the BERT pre-trained model, this tokenizer is context-aware and adept at handling the nuances of language, making it suitable for advanced NLP projects.
+Byte-Pair Encoding (BPE): An adaptive method that tokenizes based on the most frequent byte pairs in a text. It is effective for languages that combine smaller units to form meaning.
+Sentence Piece: An unsupervised text tokenizer and de-tokenizer, particularly useful for neural network-based text generation tasks. It supports multiple languages and can tokenize text into sub-words.
+
