@@ -1,0 +1,15 @@
+
+Tokenization is a fundamental process in Natural Language Processing (NLP) that involves breaking down a stream of text into smaller units called tokens. 
+These tokens can range from individual characters to full words or phrases, Based on how detailed it needs to be. By converting text into these manageable chunks, 
+machines can more effectively analyze and understand human language.
+Tokenization Explained
+Tokenization can be likened to teaching someone a new language by starting with the alphabet, then moving on to syllables, and finally to complete words and sentences. 
+This process allows for the dissection of text into parts that are easier for machines to process. For example, consider the sentence, "Chatbots are helpful." When tokenized by words, it becomes:
+
+["Chatbots", "are", "helpful"]
+
+If tokenized by characters, it becomes:
+
+["C", "h", "a", "t", "b", "o", "t", "s", " ", "a", "r", "e", " ", "h", "e", "l", "p", "f", "u", "l"]
+
+Each approach has its own advantages depending on the context and the specific NLP task at hand.
