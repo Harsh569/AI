@@ -1,0 +1,32 @@
+1) Stemming -> Reduces words to their root form by chopping off suffixes.
+“playing” → “play”, “studies” → “studi”
+Less accurate, rule-based
+
+2) Lemmatization -> Reduces words to their base or dictionary form using linguistic rules.
+“playing” → “play”, “studies” → “study”
+More accurate, uses vocabulary and grammar
+
+#### Example: #####
+import nltk
+from nltk.stem import PorterStemmer, WordNetLemmatizer
+from nltk.corpus import wordnet
+
+# Download required resources
+nltk.download('punkt')
+nltk.download('wordnet')
+nltk.download('omw-1.4')
+
+# Sample words
+words = ["playing", "played", "plays", "studies", "studying", "better", "running"]
+
+# Initialize stemmer and lemmatizer
+stemmer = PorterStemmer()
+lemmatizer = WordNetLemmatizer()
+
+print("Stemming Results:")
+for word in words:
+    print(f"{word} → {stemmer.stem(word)}")
+
+print("\nLemmatization Results:")
+for word in words:
+    print(f"{word} → {lemmatizer.lemmatize(word)}")  # Default POS is noun
