@@ -1,0 +1,60 @@
+##### Lexical and Morphological Analysis ####
+
+1) ## Lexical Analysis
+It focuses on identifying and processing words (or lexemes) in a text. It breaks down the input text into individual tokens that are meaningful units of language such as words or phrases.
+
+Key tasks in Lexical analysis:
+
+Tokenization: Process of dividing a text into smaller chunks called tokens. For example the sentence "I love programming" would be tokenized into ["I", "love", "programming"].
+Part-of-Speech Tagging: Assigning parts of speech such as noun, verb, adjective to each token in the sentence. This helps us to understand grammatical roles of words in the context.
+Example: Consider the sentence: "I am reading a book."
+
+Tokenization: Sentence is broken down into individual tokens or words: ["I", "am", "reading", "a", "book"]
+Part-of-Speech Tagging: Each token is assigned a part of speech: ["I" → Pronoun (PRP), "am" → Verb (VBP), "reading" → Verb (VBG), "a" → Article (DT), "book" → Noun (NN)]
+Importance of Lexical Analysis
+
+Word Identification: It breaks text into tokens which helps the system to understand individual words for further processing.
+Text Simplification: It simplifies text through tokenization and stemming which improves accuracy in NLP tasks.
+
+#lexical Analysis
+!pip install spacy
+import spacy
+
+# Load spaCy's English model
+nlp = spacy.load("en_core_web_sm")
+
+# Sample sentence
+sentence = "Harshad is learning NLP from scratch."
+
+# Process the sentence
+doc = nlp(sentence)
+print("doc",doc)
+
+# Tokenization
+tokens = [token.text for token in doc]
+print("Tokens:", tokens)
+
+# Part-of-Speech Tagging
+pos_tags = [(token.text, token.pos_) for token in doc]
+print("POS Tags:", pos_tags)
+
+# Lemmatization
+lemmas = [(token.text, token.lemma_) for token in doc]
+print("Lemmas:", lemmas)
+
+# Named Entity Recognition
+entities = [(ent.text, ent.label_) for ent in doc.ents]
+print("Named Entities:", entities)
+
+2) ## Morphological Analysis ##
+It deals with morphemes which are the smallest units of meaning in a word. It is important for understanding structure of words and their parts by identifying free morphemes (independent words like "cat") and bound morphemes (like prefixes or suffixes e.g. "un-" or "-ing").
+
+Key tasks in morphological analysis:
+
+Stemming: Reducing words to their root form like "running" to "run".
+Lemmatization: Converting words to their base or dictionary form considering the context like "better" becomes "good".
+Importance of Morphological Analysis
+
+Understanding Word Structure: It helps in breaking the composition of complex words.
+Improving Accuracy: It enhances accuracy of tasks such as part-of-speech tagging, syntactic parsing and machine translation.
+
