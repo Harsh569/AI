@@ -1,0 +1,32 @@
+An N-gram is a contiguous sequence of N items (usually words or characters) from a given text.
+🔢 Types of N-grams:
+
+Unigram (1-gram): Single words → ["Harshad", "is", "learning"]
+Bigram (2-gram): Pairs of words → [("Harshad", "is"), ("is", "learning")]
+Trigram (3-gram): Triplets → [("Harshad", "is", "learning")]
+
+
+import nltk
+from nltk.util import ngrams
+from nltk.tokenize import word_tokenize
+
+# Download tokenizer
+nltk.download('punkt')
+
+# Sample text
+text = "Harshad is learning Natural Language Processing"
+
+# Tokenize into words
+tokens = word_tokenize(text)
+
+# Generate bigrams
+bigrams = list(ngrams(tokens, 2))
+print("Bigrams:", bigrams)
+
+# Generate trigrams
+trigrams = list(ngrams(tokens, 3))
+print("Trigrams:", trigrams)
+
+Output:  ('is', 'learning'), ('learning', 'Natural'), ('Natural', 'Language'), ('Language', 'Processing')]
+Trigrams: [('Harshad', 'is', 'learning'), ('is', 'learning', 'Natural'), ('learning', 'Natural', 'Language'), ('Natural', 'Language', 'Processing')]
+
