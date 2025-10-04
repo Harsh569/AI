@@ -1,0 +1,32 @@
+#### Syntactic Analysis ####
+
+Syntactic Analysis helps in understanding how words in a sentence are arranged according to grammar rules. It ensures that the sentence follows correct grammar which makes the meaning clearer. 
+The goal is to create a parse tree which is a diagram showing the structure of sentence. It breaks the sentence into parts like the subject, verb and object and shows how these parts are connected. This helps machines understand the relationships between words in the sentence.
+
+Key components of syntactic analysis include:
+POS Tagging: Assigning parts of speech (noun, verb, adjective) to words in a sentence as discussed earlier.
+Ambiguity Resolution: Handling words that have multiple meanings (e.g "book" can be a noun or a verb).
+Examples
+Consider the following sentences:
+
+Correct Syntax: "John eats an apple."
+Incorrect Syntax: "Apple eats John an."
+Despite using same words only the first sentence is grammatically correct and makes sense. The correct arrangement of words according to grammatical rules is what makes the sentence meaningful. 
+By analyzing sentence structure NLP systems can better understand and generate human language. This helps in tasks like machine translation, sentiment analysis and information retrieval by making the text clearer and reducing confusion.
+
+## CODE ##
+import spacy
+
+# Load spaCy's English model
+nlp = spacy.load("en_core_web_sm")
+
+# Sample sentence
+sentence = "Harshad is learning Natural Language Processing from scratch."
+
+# Process the sentence
+doc = nlp(sentence)
+
+# Part-of-Speech Tagging and Dependency Parsing
+print("Word\tPOS\tDependency\tHead Word")
+for token in doc:
+    print(f"{token.text}\t{token.pos_}\t{token.dep_}\t{token.head.text}")
