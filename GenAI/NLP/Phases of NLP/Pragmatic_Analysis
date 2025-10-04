@@ -1,0 +1,35 @@
+#### Pragmatic Analysis ####
+Pragmatic analysis helps in understanding the deeper meaning behind words and sentences by looking beyond their literal meanings. While semantic analysis looks at the direct meaning it considers the speaker's or writer's intentions, tone and context of the communication.
+
+Key tasks in pragmatic analysis:
+Understanding Intentions: Sometimes language doesn’t mean what it says literally. For example when someone asks "Can you pass the salt?" it's not about ability but a polite request. It helps to understand true intention behind such expressions.
+Figurative Meaning: Language often uses idioms or metaphors that can’t be taken literally.
+
+## CODE ##
+
+from sklearn.feature_extraction.text import CountVectorizer
+from sklearn.naive_bayes import MultinomialNB
+
+# Sample data
+texts = [
+    "Can you pass the salt?",       # Request
+    "What time is it?",             # Question
+    "It's freezing in here.",       # Complaint
+    "I love this movie!",           # Opinion
+    "Please open the door.",        # Command
+]
+
+labels = ["request", "question", "complaint", "opinion", "command"]
+
+# Vectorize and train
+vectorizer = CountVectorizer()
+X = vectorizer.fit_transform(texts)
+model = MultinomialNB()
+model.fit(X, labels)
+
+# Predict intent
+test_text = ["Could you help me with this?"]
+X_test = vectorizer.transform(test_text)
+predicted = model.predict(X_test)
+
+print("Predicted intent:", predicted[0])
